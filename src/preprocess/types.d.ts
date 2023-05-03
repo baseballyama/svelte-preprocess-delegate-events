@@ -1,0 +1,4 @@
+
+interface Config {
+  additionalEvents?: string[];
+}
