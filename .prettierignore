@@ -1,0 +1,3 @@
+test/fixture/**/output.svelte
+@types/svelte-jsx.d.ts
+pnpm-lock.yaml
