@@ -56,7 +56,7 @@ const findDelegatedEvent = (node) => {
 
 /**
  *
- * @param {Config} _config
+ * @param {{additionalElementEvents?: string[]}} _config
  */
 const preprocess = (_config = {}) => {
   /**
