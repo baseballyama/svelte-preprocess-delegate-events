@@ -1,31 +1,35 @@
 <script>
   import { registerDelegatedEvents } from 'svelte-preprocess-delegate-events/runtime';
   import { get_current_component } from 'svelte/internal';
-  const onClick = () => {
-    console.log("clicked");
-  };
 
+  /** @type {Element} */
   let button0;
-  const component1 = get_current_component();
-  $: registerDelegatedEvents(button0, component1, (handler) => handler, {});
+  const component0 = get_current_component();
+  $: registerDelegatedEvents(button0, component0, (handler) => handler, {});
 
+  /** @type {Element} */
   let button1;
-  $: registerDelegatedEvents(button1, component1, (handler) => handler, {});
+  $: registerDelegatedEvents(button1, component0, (handler) => handler, {});
 
+  /** @type {Element} */
   let button2;
-  $: registerDelegatedEvents(button2, component1, (handler) => handler, {});
+  $: registerDelegatedEvents(button2, component0, (handler) => handler, {});
 
+  /** @type {Element} */
   let button3;
-  $: registerDelegatedEvents(button3, component1, (handler) => handler, {});
+  $: registerDelegatedEvents(button3, component0, (handler) => handler, {});
 
+  /** @type {Element} */
   let button4;
-  $: registerDelegatedEvents(button4, component1, (handler) => handler, {});
+  $: registerDelegatedEvents(button4, component0, (handler) => handler, {});
 
+  /** @type {Element} */
   let button5;
-  $: registerDelegatedEvents(button5, component1, (handler) => handler, {});
+  $: registerDelegatedEvents(button5, component0, (handler) => handler, {});
 
+  /** @type {Element} */
   let button6;
-  $: registerDelegatedEvents(button6, component1, (handler) => handler, {});
+  $: registerDelegatedEvents(button6, component0, (handler) => handler, {});
 </script>
 
 <button bind:this={button0}>Click Me</button>

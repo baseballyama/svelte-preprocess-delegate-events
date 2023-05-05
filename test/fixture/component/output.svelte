@@ -1,15 +1,14 @@
 <script>
-  import { delegatedEventsHandler } from "svelte-preprocess-delegate-events/runtime";
+  import { get_current_component } from 'svelte/internal';
+  import { boundComponents } from 'svelte-preprocess-delegate-events/runtime';
+  import { proxyCallbacks } from 'svelte-preprocess-delegate-events/runtime';
   // @ts-ignore
   import Sub from "./Sub.svelte";
 
-  const onClick = () => {
-    console.log("click");
-  };
+  /** @type {any} */
+  let Sub0 = boundComponents();
+  const component0 = get_current_component();
+  $: proxyCallbacks(component0, Sub0.bounds, false);
+  </script>
 
-  /** @type {typeof Sub} */
-  let Sub0;
-  $: delegatedEventsHandler(Sub0, ['*'], onClick);
-</script>
-
-<Sub bind:this={Sub0} />
+<Sub bind:this={Sub0.bounds} />

@@ -1,23 +1,8 @@
 import { walk, parse } from "svelte/compiler";
 import * as MagicString from "magic-string";
-import { findDelegatedEvent } from "./utils.js";
 import { addImport } from "./import.js";
-import buildRegisterDelegatedEvents from "./builder/buildRegisterDelegatedEvents.js";
-
-/**
- * @param {{componentName: string, varName: string, events: string[], handler: string, isOnce: string}} props
- * @returns {string}
- */
-const buildComponentHandler = (props) => {
-  const { componentName, varName, events, handler, isOnce } = props;
-  return `
-  /** @type {typeof ${componentName}} */
-  let ${varName};
-  $: delegatedEventsHandler(${varName}, [${events
-    .map((e) => `'${e}'`)
-    .join(", ")}], ${isOnce ? `once(${handler})` : handler});
-`;
-};
+import buildElementRuntime from "./builder/element.js";
+import buildComponentRuntime from "./builder/component.js";
 
 /**
  * @param {ReturnType<import('svelte/compiler').parse>} parsed
@@ -51,16 +36,35 @@ const getUniqueVarName = (usedVarNames, name) => {
 };
 
 /**
- *
- * @param {Config} config
+ * @param {ReturnType<typeof import('svelte/compiler')['parse']>['html']} node
  */
-const preprocess = (config = {}) => {
+const findDelegatedEvent = (node) => {
+  for (const attribute of node.attributes) {
+    if (attribute.type === "EventHandler" && attribute.name === "*") {
+      const { expression } = attribute;
+      if (expression) {
+        throw Error(
+          `Event handler with \`on:*\` is not supported. (${expression.start}:${expression.end})`
+        );
+      }
+
+      return attribute;
+    }
+  }
+  return undefined;
+};
+
+/**
+ *
+ * @param {Config} _config
+ */
+const preprocess = (_config = {}) => {
   /**
    * @satisfies {Parameters<import ('svelte/compiler')['preprocess']>[1]}
    */
   const preprocessor = {
     markup: ({ content, filename }) => {
-      /** @type {AddedImports} */
+      /** @type {Record<string, string[]>} */
       const addedImports = {};
       /** @type {string | undefined} */
       let currentComponentName;
@@ -86,7 +90,6 @@ const preprocess = (config = {}) => {
             const attribute = findDelegatedEvent(node);
             if (!attribute) return;
             const varName = getUniqueVarName(usedVarNames, node.name);
-            const componentName = getUniqueVarName(usedVarNames, "component");
             const modifiers = attribute.modifiers;
             magicContent.update(
               attribute.start,
@@ -101,7 +104,7 @@ const preprocess = (config = {}) => {
                 "component"
               );
             }
-            const handlerStatement = buildRegisterDelegatedEvents(
+            const handlerStatement = buildElementRuntime(
               varName,
               currentComponentName,
               needGetCurrentComponent,
@@ -137,69 +140,47 @@ const preprocess = (config = {}) => {
             );
 
             magicContent.appendLeft(instance.end - 9, handlerStatement);
-          } else if (node.type === "InlineComponent") {
-            for (const attribute of node.attributes) {
-              if (attribute.type === "EventHandler") {
-                const { name } = attribute;
-                const isOnce = attribute.modifiers.includes("once");
-                if (attribute.modifiers.length !== (isOnce ? 1 : 0)) {
-                  throw new Error(
-                    `Event modifiers other than 'once' can only be used on DOM elements (${attribute.start}:${attribute.end})`
-                  );
-                }
-                const { expression } = attribute;
-                const handler = expression
-                  ? content.substring(expression.start, expression.end)
-                  : undefined;
+            return;
+          }
 
-                if (handler) {
-                  addImport(
-                    {
-                      from: "svelte-preprocess-delegate-events/runtime",
-                      name: "delegatedEventsHandler",
-                      content,
-                      parsed,
-                      magicContent,
-                    },
-                    addedImports
-                  );
-                  if (isOnce) {
-                    addImport(
-                      {
-                        from: "svelte/internal",
-                        name: "once",
-                        content,
-                        parsed,
-                        magicContent,
-                      },
-                      addedImports
-                    );
-                  }
-                  const varName = getUniqueVarName(usedVarNames, node.name);
-                  magicContent.update(
-                    attribute.start,
-                    attribute.end,
-                    `bind:this={${varName}}`
-                  );
-                  const handlerStatement = buildComponentHandler({
-                    componentName: node.name,
-                    varName,
-                    events: name.split(","),
-                    handler,
-                    isOnce,
-                  });
-                  if (instance) {
-                    magicContent.appendLeft(instance.end - 9, handlerStatement);
-                  } else {
-                    magicContent.appendLeft(
-                      0,
-                      `<script>\n${handlerStatement}\n</script>`
-                    );
-                  }
-                } else {
-                }
-              }
+          if (node.type === "InlineComponent") {
+            const attribute = findDelegatedEvent(node);
+            if (!attribute) return;
+            const isOnce = attribute.modifiers.includes("once");
+            if (attribute.modifiers.length !== (isOnce ? 1 : 0)) {
+              throw new Error(
+                `Event modifiers other than 'once' can only be used on DOM elements (${attribute.start}:${attribute.end})`
+              );
             }
+
+            const needGetCurrentComponent = !currentComponentName;
+            if (!currentComponentName) {
+              currentComponentName = getUniqueVarName(
+                usedVarNames,
+                "component"
+              );
+            }
+
+            const varName = getUniqueVarName(usedVarNames, node.name);
+            magicContent.update(
+              attribute.start,
+              attribute.end,
+              `bind:this={${varName}.bounds}`
+            );
+
+            const proxyCallbacks = buildComponentRuntime(
+              currentComponentName,
+              varName,
+              needGetCurrentComponent,
+              isOnce,
+              (from, name) => {
+                addImport(
+                  { from, name, content, parsed, magicContent },
+                  addedImports
+                );
+              }
+            );
+            magicContent.appendLeft(instance.end - 9, proxyCallbacks);
           }
         },
       });

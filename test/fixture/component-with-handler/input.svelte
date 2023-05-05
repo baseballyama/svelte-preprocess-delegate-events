@@ -1,6 +1,5 @@
 <script>
-  // @ts-ignore
   import Sub from "./Sub.svelte";
 </script>
 
-<Sub on:* />
+<Sub on:*="{() => console.log('hi')}" />

@@ -1,0 +1,1 @@
+Event handler with `on:*` is not supported. (66:89)

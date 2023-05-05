@@ -36,7 +36,7 @@ const hasImport = (instance, from, name) => {
 
 /**
  * @param {AddImportProp} props
- * @param {AddedImports} addedImports
+ * @param {Record<string, string[]>} addedImports
  */
 export const addImport = (props, addedImports) => {
   const { from, name, content, parsed, magicContent } = props;

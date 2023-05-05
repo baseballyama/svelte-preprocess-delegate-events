@@ -22,8 +22,8 @@
     "skipLibCheck": true,
     "outDir": "dist",
     "lib": ["ES2015", "DOM"],
-    "typeRoots": ["./@types"]
+    "typeRoots": ["@types"]
   },
-  "include": ["src/**/*", "test/**/*"],
+  "include": ["src/**/*", "test/**/*.js"],
   "exclude": ["node_modules", "coverage", "test/**/*.svelte"]
 }

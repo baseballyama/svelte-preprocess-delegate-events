@@ -12,5 +12,3 @@ interface AddImportProp {
   parsed: ReturnType<typeof parse>;
   magicContent: MagicString.default;
 }
-
-type AddedImport = Record<string, string[]>;

@@ -21,6 +21,7 @@ const build = (
     ? `\n  const ${currentComponentName} = get_current_component();`
     : "";
   return `
+  /** @type {Element} */
   let ${varName};${get_current_component}
   $: registerDelegatedEvents(${varName}, ${currentComponentName}, ${add_modifiers}, ${optionStr});
 `;
