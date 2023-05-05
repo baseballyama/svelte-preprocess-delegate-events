@@ -33,6 +33,7 @@ describe.concurrent("test", () => {
         expect(actual.code).toBe(expected);
       } catch (/** @type {any} */ e) {
         error = e.message;
+        console.log({ e });
         if (!expectedError) {
           console.error(e);
         }

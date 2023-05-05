@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/baseballyama/svelte-preprocess-delegate-events#readme",
   "devDependencies": {
+    "@types/estree": "^1.0.1",
     "estree-walker": "^3.0.3",
     "magic-string": "^0.30.0",
     "prettier": "^2.8.8",

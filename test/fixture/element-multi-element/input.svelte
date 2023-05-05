@@ -4,10 +4,10 @@
   };
 </script>
 
-<button on:*="{onClick}">Click Me</button>
-<button on:*="{onClick}">Click Me</button>
-<button on:*="{onClick}">Click Me</button>
-<button on:*="{onClick}">Click Me</button>
-<button on:*="{onClick}">Click Me</button>
-<button on:*="{onClick}">Click Me</button>
-<button on:*="{onClick}">Click Me</button>
+<button on:*>Click Me</button>
+<button on:*>Click Me</button>
+<button on:*>Click Me</button>
+<button on:*>Click Me</button>
+<button on:*>Click Me</button>
+<button on:*>Click Me</button>
+<button on:*>Click Me</button>

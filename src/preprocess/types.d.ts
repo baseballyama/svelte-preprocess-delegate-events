@@ -1,4 +1,16 @@
-
 interface Config {
-  additionalEvents?: string[];
+  /**
+   * If
+   */
+  additionalElementEvents?: string[];
 }
+
+interface AddImportProp {
+  from: string;
+  name: string;
+  content: string;
+  parsed: ReturnType<typeof parse>;
+  magicContent: MagicString.default;
+}
+
+type AddedImport = Record<string, string[]>;

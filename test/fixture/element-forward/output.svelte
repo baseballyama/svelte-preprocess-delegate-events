@@ -1,1 +1,9 @@
-<button on:abort on:animationcancel on:animationend on:animationiteration on:animationstart on:auxclick on:beforeinput on:blur on:cancel on:canplay on:canplaythrough on:change on:click on:close on:contextmenu on:copy on:cuechange on:cut on:dblclick on:drag on:dragend on:dragenter on:dragleave on:dragover on:dragstart on:drop on:durationchange on:emptied on:ended on:error on:focus on:formdata on:gotpointercapture on:input on:invalid on:keydown on:keypress on:keyup on:load on:loadeddata on:loadedmetadata on:loadstart on:lostpointercapture on:mousedown on:mouseenter on:mouseleave on:mousemove on:mouseout on:mouseover on:mouseup on:paste on:pause on:play on:playing on:pointercancel on:pointerdown on:pointerenter on:pointerleave on:pointermove on:pointerout on:pointerover on:pointerup on:progress on:ratechange on:reset on:resize on:scroll on:securitypolicyviolation on:seeked on:seeking on:select on:selectionchange on:selectstart on:slotchange on:stalled on:submit on:suspend on:timeupdate on:toggle on:touchcancel? on:touchend? on:touchmove? on:touchstart? on:transitioncancel on:transitionend on:transitionrun on:transitionstart on:volumechange on:waiting on:webkitanimationend on:webkitanimationiteration on:webkitanimationstart on:webkittransitionend on:wheel>Click Me</button>
+<button bind:this={button0}>Click Me</button>
+
+<script>
+  import { registerDelegatedEvents } from 'svelte-preprocess-delegate-events/runtime';
+  import { get_current_component } from 'svelte/internal';
+  let button0;
+  const component1 = get_current_component();
+  $: registerDelegatedEvents(button0, component1, (handler) => handler, {});
+</script>

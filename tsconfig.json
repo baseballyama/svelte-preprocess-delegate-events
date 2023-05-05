@@ -21,7 +21,9 @@
     "allowUnreachableCode": true,
     "skipLibCheck": true,
     "outDir": "dist",
-    "lib": ["ES2015"]
+    "lib": ["ES2015", "DOM"],
+    "typeRoots": ["./@types"]
   },
-  "exclude": ["node_modules", "coverage"]
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "coverage", "test/**/*.svelte"]
 }
