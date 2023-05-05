@@ -16,6 +16,7 @@
     "test:watch": "vitest",
     "test:types": "svelte-check --tsconfig ./tsconfig.json",
     "test:all": "pnpm format:check && pnpm test && pnpm test:types && pnpm type:gen && pnpm publish:check",
+    "test:coverage": "vitest run --coverage",
     "type:gen": "tsc --emitDeclarationOnly",
     "update:version": "changeset version",
     "release": "pnpm type:gen && changeset publish"
@@ -50,6 +51,7 @@
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.1",
     "@types/estree": "^1.0.1",
+    "@vitest/coverage-c8": "^0.31.0",
     "estree-walker": "^3.0.3",
     "magic-string": "^0.30.0",
     "prettier": "^2.8.8",
