@@ -1,4 +1,6 @@
 [![NPM license](https://img.shields.io/npm/l/svelte-preprocess-delegate-events.svg)](https://www.npmjs.com/package/svelte-preprocess-delegate-events)
+[![NPM version](https://img.shields.io/npm/v/svelte-preprocess-delegate-events.svg)](https://www.npmjs.com/package/svelte-preprocess-delegate-events)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Build Status](https://github.com/baseballyama/svelte-preprocess-delegate-events/workflows/CI/badge.svg?branch=main)](https://github.com/baseballyama/svelte-preprocess-delegate-events/actions?query=workflow:ci)
 [![Coverage Status](https://coveralls.io/repos/github/baseballyama/svelte-preprocess-delegate-events/badge.svg?branch=main)](https://coveralls.io/github/baseballyama/svelte-preprocess-delegate-events?branch=main)
 
