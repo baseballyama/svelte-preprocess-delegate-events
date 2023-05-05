@@ -3,20 +3,31 @@
   "version": "0.0.1",
   "description": "You can delegate events by on:* 🎉",
   "type": "module",
+  "files": [
+    "dist/*",
+    "src/*",
+    "!/**/test"
+  ],
   "scripts": {
     "format:check": "prettier --cache --check .",
     "format:fix": "prettier --cache --write .",
+    "publish:check": "publint",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:types": "svelte-check --tsconfig ./tsconfig.json",
-    "test:all": "pnpm format:check && pnpm test && pnpm test:types"
+    "test:all": "pnpm format:check && pnpm test && pnpm test:types && pnpm type:gen && pnpm publish:check",
+    "type:gen": "tsc --emitDeclarationOnly",
+    "update:version": "changeset version",
+    "release": "pnpm type:gen && changeset publish"
   },
   "exports": {
     "./package.json": "./package.json",
     "./preprocess": {
+      "types": "./dist/src/preprocess/index.d.ts",
       "import": "./src/preprocess/index.js"
     },
     "./runtime": {
+      "types": "./dist/src/runtime/index.d.ts",
       "import": "./src/runtime/index.js"
     }
   },
@@ -36,10 +47,13 @@
   },
   "homepage": "https://github.com/baseballyama/svelte-preprocess-delegate-events#readme",
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.1",
     "@types/estree": "^1.0.1",
     "estree-walker": "^3.0.3",
     "magic-string": "^0.30.0",
     "prettier": "^2.8.8",
+    "publint": "^0.1.11",
     "svelte": "^3.58.0",
     "svelte-check": "^3.2.0",
     "typescript": "^5.0.4",

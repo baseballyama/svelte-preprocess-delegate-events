@@ -1,10 +1,3 @@
-interface Config {
-  /**
-   * If
-   */
-  additionalElementEvents?: string[];
-}
-
 interface AddImportProp {
   from: string;
   name: string;
