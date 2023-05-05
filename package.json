@@ -15,7 +15,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:types": "svelte-check --tsconfig ./tsconfig.json",
-    "test:all": "pnpm format:check && pnpm test && pnpm test:types && pnpm publish:check",
+    "test:all": "pnpm format:check && pnpm test && pnpm test:types && pnpm type:gen && pnpm publish:check",
     "type:gen": "tsc --emitDeclarationOnly",
     "update:version": "changeset version",
     "release": "pnpm type:gen && changeset publish"
