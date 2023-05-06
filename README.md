@@ -10,7 +10,7 @@
 - ⚡️ No performance overhead
 - 🔑 No type error with [svelte-check](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check)
 
-## Try this on [Stackblitz](https://stackblitz.com/) 🚀.
+## Try this on [Stackblitz](https://stackblitz.com/edit/sveltejs-kit-template-default-rwmhls?file=src%2Froutes%2F%2Bpage.svelte&terminal=dev) 🚀.
 
 # What is it?
 
@@ -56,7 +56,7 @@ After install it, please add this as a Svelte preprocessor.
 
 ```js
 // svelte.config.js
-import { preprocess as delegateEvents } from "svelte-preprocess-delegate-events";
+import delegateEvents from "svelte-preprocess-delegate-events/preprocess";
 
 const config = {
   // Please add this preprocessor at the last of the array.
@@ -65,12 +65,6 @@ const config = {
 
 export default config;
 ```
-
-# Type Definition
-
-<!-- TODO: TBD -->
-
-TBD...
 
 # How it works?
 
