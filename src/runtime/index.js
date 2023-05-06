@@ -1,4 +1,4 @@
-import { listen, bubble, once } from "svelte/internal";
+import { listen, bubble, once } from 'svelte/internal';
 
 /**
  * @param {Element & { _delegated?: boolean }} element
@@ -35,8 +35,8 @@ export function boundComponents() {
         return target[prop];
       },
       set: (target, prop, value) => {
-        if (prop === "bounds") {
-          if (value && !target.bounds.includes(value)) {
+        if (prop === 'bounds') {
+          if (value && target.bounds.indexOf(value) === -1) {
             target.bounds.push(value);
           }
         } else {
@@ -44,7 +44,7 @@ export function boundComponents() {
           target[prop] = value;
         }
         return true;
-      },
+      }
     }
   );
 }
@@ -67,12 +67,12 @@ export function proxyCallbacks(thisComponent, boundComponents, isOnce) {
             );
           }
           return target[prop];
-        },
+        }
       });
-      Object.defineProperty(boundComponent.$$.callbacks, "_de_", {
+      Object.defineProperty(boundComponent.$$.callbacks, '_de_', {
         configurable: false,
         enumerable: false,
-        value: [],
+        value: []
       });
     }
   }

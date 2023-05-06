@@ -1,4 +1,4 @@
-import { walk } from "svelte/compiler";
+import { walk } from 'svelte/compiler';
 
 /**
  * @param {AddImportProp["parsed"]["instance"]} instance
@@ -13,15 +13,15 @@ const hasImport = (instance, from, name) => {
   walk(/** @type {any} */ (instance), {
     enter(node) {
       if (importDeclaration) return;
-      if (node.type !== "ImportDeclaration") return;
+      if (node.type !== 'ImportDeclaration') return;
       if (
         node.source.value === from &&
-        node.specifiers.find((s) => s.type === "ImportSpecifier")
+        node.specifiers.find((s) => s.type === 'ImportSpecifier')
       ) {
         importDeclaration = node;
         for (const specifier of node.specifiers) {
           if (
-            specifier.type === "ImportSpecifier" &&
+            specifier.type === 'ImportSpecifier' &&
             specifier.imported.name === name
           ) {
             hasImportSpecifier = true;
@@ -29,7 +29,7 @@ const hasImport = (instance, from, name) => {
           }
         }
       }
-    },
+    }
   });
   return { importDeclaration, hasImportSpecifier };
 };
@@ -40,19 +40,19 @@ const hasImport = (instance, from, name) => {
  */
 export const addImport = (props, addedImports) => {
   const { from, name, content, parsed, magicContent } = props;
-  if (addedImports[from]?.includes(name)) return;
+  if (addedImports[from] && addedImports[from]?.indexOf(name) !== -1) return;
   if (addedImports[from]) addedImports[from]?.push(name);
   else addedImports[from] = [name];
   const { instance } = parsed;
   if (!instance) {
     throw Error(
-      "This is probably a bug. Please submit a issue on https://github.com/baseballyama/svelte-preprocess-delegate-events/issues"
+      'This is probably a bug. Please submit a issue on https://github.com/baseballyama/svelte-preprocess-delegate-events/issues'
     );
   }
 
   const { start, end } = instance;
   const endOfScriptStart =
-    start + content.substring(start, end).indexOf(">") + 1;
+    start + content.substring(start, end).indexOf('>') + 1;
 
   const { importDeclaration, hasImportSpecifier } = hasImport(
     instance,

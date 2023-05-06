@@ -26,10 +26,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: prebuild
         run: pnpm install --frozen-lockfile
 
       - name: test project
-        run: pnpm test:all
+        run: pnpm type:gen && pnpm test:all

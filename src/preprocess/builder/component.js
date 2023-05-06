@@ -14,18 +14,18 @@ const build = (
   addImport
 ) => {
   if (needGetCurrentComponent) {
-    addImport("svelte/internal", "get_current_component");
+    addImport('svelte/internal', 'get_current_component');
   }
-  addImport("svelte-preprocess-delegate-events/runtime", "boundComponents");
-  addImport("svelte-preprocess-delegate-events/runtime", "proxyCallbacks");
+  addImport('svelte-preprocess-delegate-events/runtime', 'boundComponents');
+  addImport('svelte-preprocess-delegate-events/runtime', 'proxyCallbacks');
   const get_current_component = needGetCurrentComponent
     ? `\n  const ${currentComponentName} = get_current_component();`
-    : "";
+    : '';
   return `
   /** @type {any} */
   let ${boundComponentName} = boundComponents();${get_current_component}
   $: proxyCallbacks(${currentComponentName}, ${boundComponentName}.bounds, ${
-    isOnce ? "true" : "false"
+    isOnce ? 'true' : 'false'
   });
   `;
 };

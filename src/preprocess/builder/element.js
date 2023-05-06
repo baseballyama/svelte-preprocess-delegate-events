@@ -1,4 +1,4 @@
-import { get_listen_params } from "../listen.js";
+import { get_listen_params } from '../listen.js';
 
 /**
  * @param {string} varName
@@ -19,7 +19,7 @@ const build = (
   const optionStr = JSON.stringify(option);
   const get_current_component = needGetCurrentComponent
     ? `\n  const ${currentComponentName} = get_current_component();`
-    : "";
+    : '';
   return `
   /** @type {Element} */
   let ${varName};${get_current_component}

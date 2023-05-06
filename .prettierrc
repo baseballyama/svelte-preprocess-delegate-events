@@ -1,0 +1,13 @@
+{
+  "singleQuote": true,
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "README.md",
+      "options": {
+        "requirePragma": true
+      }
+    }
+  ],
+  "pluginSearchDirs": ["."]
+}

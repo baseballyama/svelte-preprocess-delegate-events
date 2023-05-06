@@ -6,5 +6,5 @@ declare namespace svelteHTML {
     Omit<
       Omit<import('svelte/elements').SvelteHTMLElements[Property], keyof EventsWithColon<Omit<svelte.JSX.IntrinsicElements[Property & string], svelte.JSX.AttributeNames>>> & EventsWithColon<Omit<svelte.JSX.IntrinsicElements[Property & string], svelte.JSX.AttributeNames>>,
       keyof Override
-    > & Override & (Record<'on:*' | `on:${string},${string}`, (event: Event & { currentTarget: EventTarget & EventTarget}) => any | never> | object);
+    > & Override & (Record<'on:*', (event: Event & { currentTarget: EventTarget & EventTarget }) => any | never> | object);
 }
