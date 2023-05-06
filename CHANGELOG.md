@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.1.4
+
+### Patch Changes
+
+- [#15](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/15) [`0a05acb`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/0a05acbd29b0be23e5783ec317b1abb0d707c228) Thanks [@baseballyama](https://github.com/baseballyama)! - fix: add main and types on package.json
+
 ## 0.1.3
 
 ### Patch Changes
