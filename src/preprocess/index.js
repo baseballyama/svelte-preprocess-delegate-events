@@ -1,8 +1,8 @@
-import { walk, parse } from "svelte/compiler";
-import * as MagicString from "magic-string";
-import { addImport } from "./import.js";
-import buildElementRuntime from "./builder/element.js";
-import buildComponentRuntime from "./builder/component.js";
+import { walk, parse } from 'svelte/compiler';
+import * as MagicString from 'magic-string';
+import { addImport } from './import.js';
+import buildElementRuntime from './builder/element.js';
+import buildComponentRuntime from './builder/component.js';
 
 /**
  * @param {ReturnType<import('svelte/compiler').parse>} parsed
@@ -13,10 +13,10 @@ const collectUsedVars = (parsed) => {
   const usedVarNames = new Set();
   walk(/** @type {any} */ (parsed.instance), {
     enter(node) {
-      if (node.type === "Identifier") {
+      if (node.type === 'Identifier') {
         usedVarNames.add(node.name);
       }
-    },
+    }
   });
   return usedVarNames;
 };
@@ -40,7 +40,7 @@ const getUniqueVarName = (usedVarNames, name) => {
  */
 const findDelegatedEvent = (node) => {
   for (const attribute of node.attributes) {
-    if (attribute.type === "EventHandler" && attribute.name === "*") {
+    if (attribute.type === 'EventHandler' && attribute.name === '*') {
       const { expression } = attribute;
       if (expression) {
         throw Error(
@@ -54,11 +54,7 @@ const findDelegatedEvent = (node) => {
   return undefined;
 };
 
-/**
- *
- * @param {{additionalElementEvents?: string[]}} _config
- */
-const preprocess = (_config = {}) => {
+const preprocess = () => {
   /**
    * @satisfies {Parameters<import ('svelte/compiler')['preprocess']>[1]}
    */
@@ -86,7 +82,7 @@ const preprocess = (_config = {}) => {
       walk(/** @type {any} */ (html), {
         // @ts-ignore
         enter(/** @type {typeof html} */ node) {
-          if (node.type === "Element") {
+          if (node.type === 'Element') {
             const attribute = findDelegatedEvent(node);
             if (!attribute) return;
             const varName = getUniqueVarName(usedVarNames, node.name);
@@ -101,7 +97,7 @@ const preprocess = (_config = {}) => {
             if (!currentComponentName) {
               currentComponentName = getUniqueVarName(
                 usedVarNames,
-                "component"
+                'component'
               );
             }
             const handlerStatement = buildElementRuntime(
@@ -119,22 +115,22 @@ const preprocess = (_config = {}) => {
 
             addImport(
               {
-                from: "svelte-preprocess-delegate-events/runtime",
-                name: "registerDelegatedEvents",
+                from: 'svelte-preprocess-delegate-events/runtime',
+                name: 'registerDelegatedEvents',
                 content,
                 parsed,
-                magicContent,
+                magicContent
               },
               addedImports
             );
 
             addImport(
               {
-                from: "svelte/internal",
-                name: "get_current_component",
+                from: 'svelte/internal',
+                name: 'get_current_component',
                 content,
                 parsed,
-                magicContent,
+                magicContent
               },
               addedImports
             );
@@ -143,10 +139,10 @@ const preprocess = (_config = {}) => {
             return;
           }
 
-          if (node.type === "InlineComponent") {
+          if (node.type === 'InlineComponent') {
             const attribute = findDelegatedEvent(node);
             if (!attribute) return;
-            const isOnce = attribute.modifiers.includes("once");
+            const isOnce = attribute.modifiers.includes('once');
             if (attribute.modifiers.length !== (isOnce ? 1 : 0)) {
               throw new Error(
                 `Event modifiers other than 'once' can only be used on DOM elements (${attribute.start}:${attribute.end})`
@@ -157,7 +153,7 @@ const preprocess = (_config = {}) => {
             if (!currentComponentName) {
               currentComponentName = getUniqueVarName(
                 usedVarNames,
-                "component"
+                'component'
               );
             }
 
@@ -182,14 +178,14 @@ const preprocess = (_config = {}) => {
             );
             magicContent.appendLeft(instance.end - 9, proxyCallbacks);
           }
-        },
+        }
       });
 
       return {
         code: magicContent.toString(),
-        map: magicContent.generateMap({ source: filename ?? "" }).toString(),
+        map: magicContent.generateMap({ source: filename ?? '' }).toString()
       };
-    },
+    }
   };
 
   return preprocessor;
