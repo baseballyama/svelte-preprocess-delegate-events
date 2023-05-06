@@ -32,4 +32,4 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: test project
-        run: pnpm test:all
+        run: pnpm type:gen && pnpm test:all
