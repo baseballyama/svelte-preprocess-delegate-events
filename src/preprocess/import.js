@@ -40,7 +40,7 @@ const hasImport = (instance, from, name) => {
  */
 export const addImport = (props, addedImports) => {
   const { from, name, content, parsed, magicContent } = props;
-  if (addedImports[from]?.indexOf(name) !== -1) return;
+  if (addedImports[from] && addedImports[from]?.indexOf(name) !== -1) return;
   if (addedImports[from]) addedImports[from]?.push(name);
   else addedImports[from] = [name];
   const { instance } = parsed;
