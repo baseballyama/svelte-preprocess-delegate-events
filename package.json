@@ -3,35 +3,6 @@
   "version": "0.1.1",
   "description": "You can delegate events by on:* 🎉",
   "type": "module",
-  "files": [
-    "dist/*",
-    "src/*",
-    "!/**/test"
-  ],
-  "scripts": {
-    "format:check": "prettier --cache --check .",
-    "format:fix": "prettier --cache --write .",
-    "publish:check": "publint",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:types": "svelte-check --tsconfig ./tsconfig.json",
-    "test:all": "pnpm format:check && pnpm test && pnpm test:types && pnpm type:gen && pnpm publish:check",
-    "test:coverage": "vitest run --coverage",
-    "type:gen": "tsc --emitDeclarationOnly",
-    "update:version": "changeset version",
-    "release": "pnpm type:gen && changeset publish"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    "./preprocess": {
-      "types": "./dist/src/preprocess/index.d.ts",
-      "import": "./src/preprocess/index.js"
-    },
-    "./runtime": {
-      "types": "./dist/src/runtime/index.d.ts",
-      "import": "./src/runtime/index.js"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/baseballyama/svelte-preprocess-delegate-events.git"
@@ -47,6 +18,32 @@
     "url": "https://github.com/baseballyama/svelte-preprocess-delegate-events/issues"
   },
   "homepage": "https://github.com/baseballyama/svelte-preprocess-delegate-events#readme",
+  "files": [
+    "@types/*",
+    "src/*",
+    "!/**/test"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./preprocess": {
+      "import": "./src/preprocess/index.js"
+    },
+    "./runtime": {
+      "import": "./src/runtime/index.js"
+    }
+  },
+  "scripts": {
+    "format:check": "prettier --cache --check .",
+    "format:fix": "prettier --cache --write .",
+    "publish:check": "publint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:types": "svelte-check --tsconfig ./tsconfig.json",
+    "test:all": "pnpm format:check && pnpm test && pnpm test:types && pnpm publish:check",
+    "test:coverage": "vitest run --coverage",
+    "update:version": "changeset version",
+    "release": "changeset publish"
+  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.1",
@@ -62,7 +59,7 @@
     "vitest": "^0.31.0"
   },
   "peerDependencies": {
-    "svelte": "^3.0.0"
+    "svelte": ">= 3 < 5"
   },
   "engines": {
     "node": ">=16.0.0"
