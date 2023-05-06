@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.1.2
+
+### Patch Changes
+
+- [#11](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/11) [`4789412`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/478941204513caee23b2eee68250f56d35611ed5) Thanks [@baseballyama](https://github.com/baseballyama)! - Fix type error by svelte-check
+
 ## 0.1.1
 
 ### Patch Changes
