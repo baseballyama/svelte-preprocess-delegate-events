@@ -1,4 +1,6 @@
 test/fixture/**/output.svelte
 @types/svelte-jsx.d.ts
 pnpm-lock.yaml
-types/
+preprocess/
+runtime/
+index.d.ts
