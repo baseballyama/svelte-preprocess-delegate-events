@@ -5,8 +5,7 @@
   // @ts-ignore
   import Sub from "./Sub.svelte";
 
-  /** @type {any} */
-  let Sub0 = boundComponents();
+  const Sub0 = boundComponents();
   const component0 = get_current_component();
   $: proxyCallbacks(component0, Sub0.bounds, false);
   </script>

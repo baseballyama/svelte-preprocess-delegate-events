@@ -1,27 +1,53 @@
 import { listen, bubble, once } from 'svelte/internal';
 
 /**
- * @param {Element & { _delegated?: boolean }} element
+ * @param {(Element & { _delegated?: boolean })[]} elements
  * @param {import ('svelte').SvelteComponentTyped} component
  * @param {(event: Parameters<typeof listen>[2]) => Parameters<typeof listen>[2] } add_modifiers
  * @param {Parameters<typeof listen>[3]} option
  */
 export function registerDelegatedEvents(
-  element,
+  elements,
   component,
   add_modifiers = (handler) => handler,
   option = {}
 ) {
-  if (element && !element._delegated) {
-    element._delegated = true;
-    for (const type of Object.keys(component.$$.callbacks)) {
-      for (const handler of component.$$.callbacks[type]) {
-        // remove event listner when element is destroyed automatically.
-        // Therefore don't need to remove event listner manually.
-        listen(element, type, add_modifiers(handler), option);
+  for (const element of elements) {
+    if (element && !element._delegated) {
+      element._delegated = true;
+      for (const type of Object.keys(component.$$.callbacks)) {
+        for (const handler of component.$$.callbacks[type]) {
+          // remove event listner when element is destroyed automatically.
+          // Therefore don't need to remove event listner manually.
+          listen(element, type, add_modifiers(handler), option);
+        }
       }
     }
   }
+}
+
+export function boundElements() {
+  return new Proxy(
+    { bounds: /** @type {Element[]} */ ([]) },
+    {
+      get: (target, prop) => {
+        target.bounds = target.bounds.filter((e) => e.parentNode !== null);
+        // @ts-ignore
+        return target[prop];
+      },
+      set: (target, prop, value) => {
+        if (prop === 'bounds') {
+          if (value && !target.bounds.includes(value)) {
+            target.bounds.push(value);
+          }
+        } else {
+          // @ts-ignore
+          target[prop] = value;
+        }
+        return true;
+      }
+    }
+  );
 }
 
 export function boundComponents() {
@@ -36,7 +62,7 @@ export function boundComponents() {
       },
       set: (target, prop, value) => {
         if (prop === 'bounds') {
-          if (value && target.bounds.indexOf(value) === -1) {
+          if (value && !target.bounds.includes(value)) {
             target.bounds.push(value);
           }
         } else {
