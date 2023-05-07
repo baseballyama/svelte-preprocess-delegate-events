@@ -12,7 +12,7 @@ export function registerDelegatedEvents(
   add_modifiers = (handler) => handler,
   option = {}
 ) {
-  for (const element of elements) {
+  for (const element of Array.isArray(elements) ? elements : [elements]) {
     if (element && !element._delegated) {
       element._delegated = true;
       for (const type of Object.keys(component.$$.callbacks)) {
@@ -45,7 +45,7 @@ export function boundElements() {
           target[prop] = value;
         }
         return true;
-      }
+      },
     }
   );
 }
@@ -70,7 +70,7 @@ export function boundComponents() {
           target[prop] = value;
         }
         return true;
-      }
+      },
     }
   );
 }
@@ -81,7 +81,9 @@ export function boundComponents() {
  * @param {boolean} isOnce
  */
 export function proxyCallbacks(thisComponent, boundComponents, isOnce) {
-  for (const boundComponent of boundComponents) {
+  for (const boundComponent of Array.isArray(boundComponents)
+    ? boundComponents
+    : [boundComponents]) {
     if (boundComponent && !boundComponent.$$.callbacks._de_) {
       boundComponent.$$.callbacks = new Proxy(boundComponent.$$.callbacks, {
         get: (target, prop) => {
@@ -93,12 +95,12 @@ export function proxyCallbacks(thisComponent, boundComponents, isOnce) {
             );
           }
           return target[prop];
-        }
+        },
       });
       Object.defineProperty(boundComponent.$$.callbacks, '_de_', {
         configurable: false,
         enumerable: false,
-        value: []
+        value: [],
       });
     }
   }

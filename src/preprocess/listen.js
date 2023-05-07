@@ -49,6 +49,6 @@ export const get_listen_params = (modifiers, addImport) => {
   const add_modifiers = `(handler) => ${left}handler${right}`;
   return {
     add_modifiers,
-    option
+    option,
   };
 };
