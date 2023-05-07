@@ -8,7 +8,7 @@
   let sub;
 
   const component0 = get_current_component();
-  $: proxyCallbacks(component0, sub.bounds, false);
+  $: proxyCallbacks(component0, sub, false);
   </script>
 
 <Sub  bind:this={sub} />
