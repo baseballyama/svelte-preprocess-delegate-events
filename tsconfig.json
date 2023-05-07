@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "module": "ES2015",
-    "target": "ES2015",
     "moduleResolution": "nodenext",
     "allowJs": true,
     "checkJs": true,
@@ -23,7 +21,7 @@
     "declaration": true,
     "declarationDir": ".",
     "emitDeclarationOnly": true,
-    "lib": ["ES2015", "DOM"],
+    "lib": ["ES2016", "DOM"],
     "typeRoots": ["@types"]
   },
   "include": ["src/**/*", "test/**/*.js"],

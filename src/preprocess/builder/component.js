@@ -22,8 +22,7 @@ const build = (
     ? `\n  const ${currentComponentName} = get_current_component();`
     : '';
   return `
-  /** @type {any} */
-  let ${boundComponentName} = boundComponents();${get_current_component}
+  const ${boundComponentName} = boundComponents();${get_current_component}
   $: proxyCallbacks(${currentComponentName}, ${boundComponentName}.bounds, ${
     isOnce ? 'true' : 'false'
   });

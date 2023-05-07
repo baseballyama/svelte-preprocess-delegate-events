@@ -90,7 +90,7 @@ const preprocess = () => {
             magicContent.update(
               attribute.start,
               attribute.end,
-              `bind:this={${varName}}`
+              `bind:this={${varName}.bounds}`
             );
 
             const needGetCurrentComponent = !currentComponentName;

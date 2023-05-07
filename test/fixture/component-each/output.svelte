@@ -7,8 +7,7 @@
 
   const numbers = [1, 2, 3];
 
-  /** @type {any} */
-  let Sub0 = boundComponents();
+  const Sub0 = boundComponents();
   const component0 = get_current_component();
   $: proxyCallbacks(component0, Sub0.bounds, false);
   </script>
