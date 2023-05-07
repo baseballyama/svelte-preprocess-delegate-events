@@ -19,20 +19,20 @@
   },
   "homepage": "https://github.com/baseballyama/svelte-preprocess-delegate-events#readme",
   "files": [
-    "types/*",
+    "preprocess/*",
+    "runtime/*",
+    "index.d.ts",
     "src/*",
     "!/**/test",
     "!/**/spec"
   ],
   "exports": {
     "./package.json": "./package.json",
-    ".": {
-      "types": "./types/index.d.ts",
-      "import": "./src/index.js"
-    }
+    "./preprocess": "./src/preprocess/index.js",
+    "./runtime": "./src/runtime/index.js"
   },
-  "main": "src/index.js",
-  "types": "./types/index.d.ts",
+  "main": "./src/index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "format:check": "prettier --cache --check .",
     "format:fix": "prettier --cache --write .",
@@ -42,7 +42,7 @@
     "test:types": "svelte-check --tsconfig ./tsconfig.json",
     "test:all": "pnpm format:check && pnpm test && pnpm test:types && pnpm publish:check",
     "test:coverage": "vitest run --coverage",
-    "type:gen": "rm -rf ./types && tsc -p tsconfig.build.json",
+    "type:gen": "rm -rf ./preprocess && rm -rf ./runtime && tsc -p tsconfig.build.json",
     "update:version": "changeset version",
     "release": "changeset publish"
   },

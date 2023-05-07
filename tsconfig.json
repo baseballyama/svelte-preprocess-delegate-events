@@ -20,9 +20,8 @@
     "allowUnusedLabels": true,
     "allowUnreachableCode": true,
     "skipLibCheck": true,
-    "outDir": "types",
     "declaration": true,
-    "declarationDir": "./types",
+    "declarationDir": ".",
     "emitDeclarationOnly": true,
     "lib": ["ES2015", "DOM"],
     "typeRoots": ["@types"]
