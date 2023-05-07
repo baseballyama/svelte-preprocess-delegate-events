@@ -136,6 +136,6 @@ dist
 test/fixture/**/actual.svelte
 .node-version
 types
-preprocess
-runtime
-index.d.ts
+/preprocess/
+/runtime/
+/index.d.ts

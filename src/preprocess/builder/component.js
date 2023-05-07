@@ -1,4 +1,5 @@
 /**
+ * @param {boolean} hasBindThis
  * @param {string} currentComponentName
  * @param {string} boundComponentName
  * @param {boolean} needGetCurrentComponent
@@ -7,6 +8,7 @@
  * @returns {string}
  */
 const build = (
+  hasBindThis,
   currentComponentName,
   boundComponentName,
   needGetCurrentComponent,
@@ -21,12 +23,21 @@ const build = (
   const get_current_component = needGetCurrentComponent
     ? `\n  const ${currentComponentName} = get_current_component();`
     : '';
-  return `
+
+  if (hasBindThis) {
+    return `${get_current_component}
+  $: proxyCallbacks(${currentComponentName}, ${boundComponentName}, ${
+      isOnce ? 'true' : 'false'
+    });
+  `;
+  } else {
+    return `
   const ${boundComponentName} = boundComponents();${get_current_component}
   $: proxyCallbacks(${currentComponentName}, ${boundComponentName}.bounds, ${
-    isOnce ? 'true' : 'false'
-  });
+      isOnce ? 'true' : 'false'
+    });
   `;
+  }
 };
 
 export default build;

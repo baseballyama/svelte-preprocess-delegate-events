@@ -3,6 +3,7 @@ import * as MagicString from 'magic-string';
 import { addImport } from './import.js';
 import buildElementRuntime from './builder/element.js';
 import buildComponentRuntime from './builder/component.js';
+import { getBindThisVarName } from './bindthis.js';
 
 /**
  * @param {ReturnType<import('svelte/compiler').parse>} parsed
@@ -16,7 +17,7 @@ const collectUsedVars = (parsed) => {
       if (node.type === 'Identifier') {
         usedVarNames.add(node.name);
       }
-    }
+    },
   });
   return usedVarNames;
 };
@@ -85,13 +86,22 @@ const preprocess = () => {
           if (node.type === 'Element') {
             const attribute = findDelegatedEvent(node);
             if (!attribute) return;
-            const varName = getUniqueVarName(usedVarNames, node.name);
-            const modifiers = attribute.modifiers;
-            magicContent.update(
-              attribute.start,
-              attribute.end,
-              `bind:this={${varName}.bounds}`
+            const bindThis = node.attributes.find(
+              (/** @type {any} */ a) => a.name === 'this'
             );
+            const varName = bindThis
+              ? getBindThisVarName(bindThis.expression)
+              : getUniqueVarName(usedVarNames, node.name);
+            const modifiers = attribute.modifiers;
+            if (!bindThis) {
+              magicContent.update(
+                attribute.start,
+                attribute.end,
+                `bind:this={${varName}.bounds}`
+              );
+            } else {
+              magicContent.update(attribute.start, attribute.end, '');
+            }
 
             const needGetCurrentComponent = !currentComponentName;
             if (!currentComponentName) {
@@ -101,6 +111,7 @@ const preprocess = () => {
               );
             }
             const handlerStatement = buildElementRuntime(
+              bindThis,
               varName,
               currentComponentName,
               needGetCurrentComponent,
@@ -119,7 +130,7 @@ const preprocess = () => {
                 name: 'registerDelegatedEvents',
                 content,
                 parsed,
-                magicContent
+                magicContent,
               },
               addedImports
             );
@@ -130,7 +141,7 @@ const preprocess = () => {
                 name: 'get_current_component',
                 content,
                 parsed,
-                magicContent
+                magicContent,
               },
               addedImports
             );
@@ -157,14 +168,25 @@ const preprocess = () => {
               );
             }
 
-            const varName = getUniqueVarName(usedVarNames, node.name);
-            magicContent.update(
-              attribute.start,
-              attribute.end,
-              `bind:this={${varName}.bounds}`
+            const bindThis = node.attributes.find(
+              (/** @type {any} */ a) => a.name === 'this'
             );
+            const varName = bindThis
+              ? getBindThisVarName(bindThis.expression)
+              : getUniqueVarName(usedVarNames, node.name);
+
+            if (!bindThis) {
+              magicContent.update(
+                attribute.start,
+                attribute.end,
+                `bind:this={${varName}.bounds}`
+              );
+            } else {
+              magicContent.update(attribute.start, attribute.end, '');
+            }
 
             const proxyCallbacks = buildComponentRuntime(
+              bindThis,
               currentComponentName,
               varName,
               needGetCurrentComponent,
@@ -178,14 +200,14 @@ const preprocess = () => {
             );
             magicContent.appendLeft(instance.end - 9, proxyCallbacks);
           }
-        }
+        },
       });
 
       return {
         code: magicContent.toString(),
-        map: magicContent.generateMap({ source: filename ?? '' }).toString()
+        map: magicContent.generateMap({ source: filename ?? '' }).toString(),
       };
-    }
+    },
   };
 
   return preprocessor;

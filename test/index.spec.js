@@ -26,7 +26,7 @@ describe.concurrent('test', () => {
       try {
         const actual = preprocess().markup({
           content: input,
-          filename: 'input.svelte'
+          filename: 'input.svelte',
         });
         expect(expected).toBeTruthy();
         writeFileSync(`./test/fixture/${testCase}/actual.svelte`, actual.code);
