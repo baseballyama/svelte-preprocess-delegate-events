@@ -1,6 +1,6 @@
 {
   "name": "svelte-preprocess-delegate-events",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "You can delegate events by on:* 🎉",
   "type": "module",
   "repository": {
