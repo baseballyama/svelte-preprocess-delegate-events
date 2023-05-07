@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.3.0
+
+### Minor Changes
+
+- [#22](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/22) [`7cba7e3`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/7cba7e37622af70ae3dafcacae8f44ae68aefba2) Thanks [@baseballyama](https://github.com/baseballyama)! - feat: support `bind:this`.
+
 ## 0.2.0
 
 ### Minor Changes
