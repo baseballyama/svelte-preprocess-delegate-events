@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.2.0
+
+### Minor Changes
+
+- [#20](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/20) [`f4f5ee1`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/f4f5ee14a4ad94635541aa51cf0d15e7cd56b9a2) Thanks [@baseballyama](https://github.com/baseballyama)! - feat: Support Element with `on:*` in `{#each}` block
+
 ## 0.1.5
 
 ### Patch Changes
