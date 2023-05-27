@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.4.1
+
+### Patch Changes
+
+- [#29](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/29) [`10350be`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/10350be94598adafef77c80b93e1fae6e3346725) Thanks [@baseballyama](https://github.com/baseballyama)! - chore: I released 0.4.0 but after that, I removed this version and again I tried to publish this. But failed. Therefore I tried to release a new version 0.4.1.
+
 ## 0.4.0
 
 ### Minor Changes
