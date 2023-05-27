@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.4.0
+
+### Minor Changes
+
+- [#27](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/27) [`e5407a8`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/e5407a8a6492f9086a3717879eb17affe9440943) Thanks [@baseballyama](https://github.com/baseballyama)! - feat: add TypeScript support
+
 ## 0.3.0
 
 ### Minor Changes
