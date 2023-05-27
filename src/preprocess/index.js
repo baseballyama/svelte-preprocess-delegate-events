@@ -1,9 +1,10 @@
-import { walk, parse } from 'svelte/compiler';
+import { walk } from 'svelte/compiler';
 import * as MagicString from 'magic-string';
 import { addImport } from './import.js';
 import buildElementRuntime from './builder/element.js';
 import buildComponentRuntime from './builder/component.js';
 import { getBindThisVarName } from './bindthis.js';
+import { parse } from 'svelte-parse-markup';
 
 /**
  * @param {ReturnType<import('svelte/compiler').parse>} parsed
