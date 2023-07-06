@@ -50,13 +50,13 @@
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.1",
     "@types/estree": "^1.0.1",
-    "@vitest/coverage-c8": "^0.31.0",
+    "@vitest/coverage-c8": "^0.33.0",
     "estree-walker": "^3.0.3",
     "prettier": "^2.8.8",
     "publint": "^0.1.11",
     "svelte-check": "^3.2.0",
     "typescript": "^5.0.4",
-    "vitest": "^0.31.0"
+    "vitest": "^0.33.0"
   },
   "engines": {
     "node": ">=16.0.0"
