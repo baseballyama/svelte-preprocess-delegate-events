@@ -1,4 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"]
+  "extends": ["config:base", ":automergePatch", ":timezone(Asia/Tokyo)", "npm:unpublishSafe"],
+  "dependencyDashboard": false,
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 0,
+  "minimumReleaseAge": "3 days",
+  "major": {
+    "stabilityDays": 30
+  },
+  "minor": {
+    "stabilityDays": 7
+  },
+  "patch": {
+    "stabilityDays": 3
+  },
+  "ignoreTests": false
 }
