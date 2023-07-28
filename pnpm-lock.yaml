@@ -6,45 +6,45 @@ settings:
 
 dependencies:
   magic-string:
-    specifier: ^0.30.0
+    specifier: 0.30.0
     version: 0.30.0
   svelte:
-    specifier: ^4.1.1
+    specifier: 4.1.1
     version: 4.1.1
   svelte-parse-markup:
-    specifier: ^0.1.2
+    specifier: 0.1.2
     version: 0.1.2(svelte@4.1.1)
 
 devDependencies:
   '@changesets/changelog-github':
-    specifier: ^0.4.8
+    specifier: 0.4.8
     version: 0.4.8
   '@changesets/cli':
-    specifier: ^2.26.1
+    specifier: 2.26.1
     version: 2.26.1
   '@types/estree':
-    specifier: ^1.0.1
+    specifier: 1.0.1
     version: 1.0.1
   '@vitest/coverage-v8':
-    specifier: ^0.33.0
+    specifier: 0.33.0
     version: 0.33.0(vitest@0.33.0)
   estree-walker:
-    specifier: ^3.0.3
+    specifier: 3.0.3
     version: 3.0.3
   prettier:
-    specifier: ^2.8.8
+    specifier: 2.8.8
     version: 2.8.8
   publint:
-    specifier: ^0.1.11
+    specifier: 0.1.11
     version: 0.1.11
   svelte-check:
-    specifier: ^3.4.6
+    specifier: 3.4.6
     version: 3.4.6(svelte@4.1.1)
   typescript:
-    specifier: ^5.0.4
+    specifier: 5.0.4
     version: 5.0.4
   vitest:
-    specifier: ^0.33.0
+    specifier: 0.33.0
     version: 0.33.0
 
 packages:
@@ -1834,13 +1834,13 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: false
 
   /magic-string@0.30.1:
     resolution: {integrity: sha512-mbVKXPmS0z0G4XqFDCTllmDQ6coZzn94aMlb0o/A4HEHJCKcanlDZwYJgwnkmgD3jyWhUgj9VsPrfd972yPffA==}
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: true
 
   /make-dir@3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
@@ -2675,7 +2675,7 @@ packages:
       estree-walker: 3.0.3
       is-reference: 3.0.1
       locate-character: 3.0.0
-      magic-string: 0.30.1
+      magic-string: 0.30.0
       periscopic: 3.1.0
 
   /term-size@2.2.1:
