@@ -62,7 +62,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "magic-string": "0.30.0",
+    "magic-string": "0.30.1",
     "svelte": "4.1.1",
     "svelte-parse-markup": "0.1.2"
   },
