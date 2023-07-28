@@ -65,5 +65,8 @@
     "magic-string": "^0.30.0",
     "svelte": "^3.59.1",
     "svelte-parse-markup": "^0.1.1"
+  },
+  "peerDependencies": {
+    "svelte": ">=3"
   }
 }
