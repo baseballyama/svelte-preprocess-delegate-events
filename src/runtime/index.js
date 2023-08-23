@@ -89,9 +89,11 @@ export function proxyCallbacks(thisComponent, boundComponents, isOnce) {
         get: (target, prop) => {
           if (!target._de_.includes(prop)) {
             target._de_.push(prop);
-            boundComponent.$on(/** @type {string} */ (prop), (e) =>
-              // @ts-ignore
-              bubble.call(this, thisComponent, isOnce ? once(e) : e),
+            boundComponent.$on(
+              /** @type {string} */ (prop),
+              (/** @type {(...any) => void} */ e) =>
+                // @ts-ignore
+                bubble.call(this, thisComponent, isOnce ? once(e) : e),
             );
           }
           return target[prop];

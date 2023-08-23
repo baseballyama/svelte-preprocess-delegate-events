@@ -34,8 +34,8 @@ jobs:
       - name: test project
         run: pnpm type:gen && pnpm test:all
 
-      - name: install Svelte4
-        run: pnpm i svelte@4 && pnpm i svelte-check@latest
+      - name: install Svelte3
+        run: pnpm i svelte@3 && pnpm i svelte-check@3.4.5
 
-      - name: test project with Svelte4
+      - name: test project with Svelte3
         run: pnpm type:gen && pnpm test:all
