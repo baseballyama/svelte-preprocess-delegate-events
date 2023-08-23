@@ -13,7 +13,7 @@ const build = (
   boundComponentName,
   needGetCurrentComponent,
   isOnce,
-  addImport
+  addImport,
 ) => {
   if (needGetCurrentComponent) {
     addImport('svelte/internal', 'get_current_component');
@@ -27,15 +27,15 @@ const build = (
   if (hasBindThis) {
     return `${get_current_component}
   $: proxyCallbacks(${currentComponentName}, ${boundComponentName}, ${
-      isOnce ? 'true' : 'false'
-    });
+    isOnce ? 'true' : 'false'
+  });
   `;
   } else {
     return `
   const ${boundComponentName} = boundComponents();${get_current_component}
   $: proxyCallbacks(${currentComponentName}, ${boundComponentName}.bounds, ${
-      isOnce ? 'true' : 'false'
-    });
+    isOnce ? 'true' : 'false'
+  });
   `;
   }
 };

@@ -46,7 +46,7 @@ export const addImport = (props, addedImports) => {
   const { instance } = parsed;
   if (!instance) {
     throw Error(
-      'This is probably a bug. Please submit a issue on https://github.com/baseballyama/svelte-preprocess-delegate-events/issues'
+      'This is probably a bug. Please submit a issue on https://github.com/baseballyama/svelte-preprocess-delegate-events/issues',
     );
   }
 
@@ -57,7 +57,7 @@ export const addImport = (props, addedImports) => {
   const { importDeclaration, hasImportSpecifier } = hasImport(
     instance,
     from,
-    name
+    name,
   );
 
   if (hasImportSpecifier) return;
@@ -67,13 +67,13 @@ export const addImport = (props, addedImports) => {
       importDeclaration.specifiers[importDeclaration.specifiers.length - 1];
     magicContent.appendLeft(
       /** @type {any} */ (lastSpecifier)?.end ?? 0,
-      `, ${name}`
+      `, ${name}`,
     );
     return;
   }
 
   magicContent.appendLeft(
     endOfScriptStart,
-    `\n  import { ${name} } from '${from}';`
+    `\n  import { ${name} } from '${from}';`,
   );
 };

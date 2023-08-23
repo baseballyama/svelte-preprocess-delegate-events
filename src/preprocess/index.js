@@ -46,7 +46,7 @@ const findDelegatedEvent = (node) => {
       const { expression } = attribute;
       if (expression) {
         throw Error(
-          `Event handler with \`on:*\` is not supported. (${expression.start}:${expression.end})`
+          `Event handler with \`on:*\` is not supported. (${expression.start}:${expression.end})`,
         );
       }
 
@@ -88,7 +88,7 @@ const preprocess = () => {
             const attribute = findDelegatedEvent(node);
             if (!attribute) return;
             const bindThis = node.attributes.find(
-              (/** @type {any} */ a) => a.name === 'this'
+              (/** @type {any} */ a) => a.name === 'this',
             );
             const varName = bindThis
               ? getBindThisVarName(bindThis.expression)
@@ -98,7 +98,7 @@ const preprocess = () => {
               magicContent.update(
                 attribute.start,
                 attribute.end,
-                `bind:this={${varName}.bounds}`
+                `bind:this={${varName}.bounds}`,
               );
             } else {
               magicContent.update(attribute.start, attribute.end, '');
@@ -108,7 +108,7 @@ const preprocess = () => {
             if (!currentComponentName) {
               currentComponentName = getUniqueVarName(
                 usedVarNames,
-                'component'
+                'component',
               );
             }
             const handlerStatement = buildElementRuntime(
@@ -120,9 +120,9 @@ const preprocess = () => {
               (from, name) => {
                 addImport(
                   { from, name, content, parsed, magicContent },
-                  addedImports
+                  addedImports,
                 );
-              }
+              },
             );
 
             addImport(
@@ -133,7 +133,7 @@ const preprocess = () => {
                 parsed,
                 magicContent,
               },
-              addedImports
+              addedImports,
             );
 
             addImport(
@@ -144,7 +144,7 @@ const preprocess = () => {
                 parsed,
                 magicContent,
               },
-              addedImports
+              addedImports,
             );
 
             magicContent.appendLeft(instance.end - 9, handlerStatement);
@@ -157,7 +157,7 @@ const preprocess = () => {
             const isOnce = attribute.modifiers.includes('once');
             if (attribute.modifiers.length !== (isOnce ? 1 : 0)) {
               throw new Error(
-                `Event modifiers other than 'once' can only be used on DOM elements (${attribute.start}:${attribute.end})`
+                `Event modifiers other than 'once' can only be used on DOM elements (${attribute.start}:${attribute.end})`,
               );
             }
 
@@ -165,12 +165,12 @@ const preprocess = () => {
             if (!currentComponentName) {
               currentComponentName = getUniqueVarName(
                 usedVarNames,
-                'component'
+                'component',
               );
             }
 
             const bindThis = node.attributes.find(
-              (/** @type {any} */ a) => a.name === 'this'
+              (/** @type {any} */ a) => a.name === 'this',
             );
             const varName = bindThis
               ? getBindThisVarName(bindThis.expression)
@@ -180,7 +180,7 @@ const preprocess = () => {
               magicContent.update(
                 attribute.start,
                 attribute.end,
-                `bind:this={${varName}.bounds}`
+                `bind:this={${varName}.bounds}`,
               );
             } else {
               magicContent.update(attribute.start, attribute.end, '');
@@ -195,9 +195,9 @@ const preprocess = () => {
               (from, name) => {
                 addImport(
                   { from, name, content, parsed, magicContent },
-                  addedImports
+                  addedImports,
                 );
-              }
+              },
             );
             magicContent.appendLeft(instance.end - 9, proxyCallbacks);
           }

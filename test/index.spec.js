@@ -11,7 +11,7 @@ describe.concurrent('test', () => {
 
       const input = readFileSync(
         `./test/fixture/${testCase}/input.svelte`,
-        'utf-8'
+        'utf-8',
       );
 
       const expected = existsSync(expectedPath)
