@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.4.2
+
+### Patch Changes
+
+- [#53](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/53) [`6a15ec8`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/6a15ec8c11d6715d061d2d30b3ce6a277d77c40a) Thanks [@baseballyama](https://github.com/baseballyama)! - fix to generate variable name
+
 ## 0.4.1
 
 ### Patch Changes
