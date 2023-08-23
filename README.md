@@ -42,6 +42,10 @@ This repository aims to solve this issue.
 />
 ```
 
+# Prerequisites
+
+This library needs Svelte3 or Svelte4.
+
 # Installation
 
 ```shell
