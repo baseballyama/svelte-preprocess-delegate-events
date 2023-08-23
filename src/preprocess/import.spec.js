@@ -53,7 +53,7 @@ describe('addImport', () => {
           parsed: parse(testCase.code),
           magicContent,
         },
-        {}
+        {},
       );
       expect(magicContent.toString()).toBe(testCase.expected);
     });

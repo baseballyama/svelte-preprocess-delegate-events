@@ -12,7 +12,7 @@ describe('get_listen_params', () => {
     const modifiers = ['preventDefault', 'stopPropagation'];
     const { add_modifiers, option } = get_listen_params(modifiers, () => {});
     expect(add_modifiers).toBe(
-      '(handler) => prevent_default(stop_propagation(handler))'
+      '(handler) => prevent_default(stop_propagation(handler))',
     );
     expect(option).toEqual({});
   });

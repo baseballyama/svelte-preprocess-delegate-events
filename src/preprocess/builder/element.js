@@ -15,7 +15,7 @@ const build = (
   currentComponentName,
   needGetCurrentComponent,
   modifiers,
-  addImport
+  addImport,
 ) => {
   if (!hasBindThis)
     addImport('svelte-preprocess-delegate-events/runtime', 'boundElements');

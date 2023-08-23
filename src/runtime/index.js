@@ -10,7 +10,7 @@ export function registerDelegatedEvents(
   elements,
   component,
   add_modifiers = (handler) => handler,
-  option = {}
+  option = {},
 ) {
   for (const element of Array.isArray(elements) ? elements : [elements]) {
     if (element && !element._delegated) {
@@ -46,7 +46,7 @@ export function boundElements() {
         }
         return true;
       },
-    }
+    },
   );
 }
 
@@ -71,7 +71,7 @@ export function boundComponents() {
         }
         return true;
       },
-    }
+    },
   );
 }
 
@@ -91,7 +91,7 @@ export function proxyCallbacks(thisComponent, boundComponents, isOnce) {
             target._de_.push(prop);
             boundComponent.$on(/** @type {string} */ (prop), (e) =>
               // @ts-ignore
-              bubble.call(this, thisComponent, isOnce ? once(e) : e)
+              bubble.call(this, thisComponent, isOnce ? once(e) : e),
             );
           }
           return target[prop];

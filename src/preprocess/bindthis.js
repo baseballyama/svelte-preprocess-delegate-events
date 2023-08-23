@@ -16,7 +16,7 @@ export const getBindThisVarName = (expression) => {
       if (node.type === 'Identifier') {
         if (hasArray) {
           throw new Error(
-            `Can only bind to an identifier (e.g. \`foo\`) or an array (e.g. \`foo[index]\`). (${expression.loc?.start.line}:${expression.loc?.start.column})`
+            `Can only bind to an identifier (e.g. \`foo\`) or an array (e.g. \`foo[index]\`). (${expression.loc?.start.line}:${expression.loc?.start.column})`,
           );
         }
         const isArray =
