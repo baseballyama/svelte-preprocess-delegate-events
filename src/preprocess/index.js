@@ -29,12 +29,14 @@ const collectUsedVars = (parsed) => {
  * @returns {string}
  */
 const getUniqueVarName = (usedVarNames, name) => {
+  // Remove chars that can not use for variable name.
+  const normalized = name.replace(/[^a-zA-Z_$]|^(\d)/g, '_');
   let i = 0;
   while (usedVarNames.has(`${name}${i}`)) {
     i++;
   }
-  usedVarNames.add(`${name}${i}`);
-  return `${name}${i}`;
+  usedVarNames.add(`${normalized}${i}`);
+  return `${normalized}${i}`;
 };
 
 /**
