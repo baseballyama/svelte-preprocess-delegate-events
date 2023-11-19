@@ -71,6 +71,6 @@
     "svelte-parse-markup": "0.1.2"
   },
   "peerDependencies": {
-    "svelte":  ">=3 <5"
+    "svelte": ">=3 <5"
   }
 }
