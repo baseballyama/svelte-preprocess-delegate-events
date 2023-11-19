@@ -1,5 +1,13 @@
 # svelte-preprocess-delegate-events
 
+## 0.4.3
+
+### Patch Changes
+
+- [#78](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/78) [`85afdb0`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/85afdb0bba5d17b2cef6edd39f18658f98052741) Thanks [@MircoSteyer](https://github.com/MircoSteyer)! - fix: fix exports of package.json for ESM resolution
+
+- [#81](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/81) [`dfb1f59`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/dfb1f5908c122c48e94e737209e84a343b2e305c) Thanks [@baseballyama](https://github.com/baseballyama)! - chore: svelte-preprocess-delegate-events does not support Svelte 5 yet
+
 ## 0.4.2
 
 ### Patch Changes
