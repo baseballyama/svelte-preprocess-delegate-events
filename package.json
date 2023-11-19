@@ -27,6 +27,10 @@
     "!/**/spec"
   ],
   "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./src/index.js"
+    },
     "./package.json": "./package.json",
     "./preprocess": "./src/preprocess/index.js",
     "./runtime": "./src/runtime/index.js"
