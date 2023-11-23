@@ -44,7 +44,7 @@ This repository aims to solve this issue.
 
 # Prerequisites
 
-This library needs Svelte3 or Svelte4.
+This library needs Svelte 3 or Svelte 4.
 
 # Installation
 
@@ -192,3 +192,9 @@ After preprocessing, it looks like this:
 <!-- Specifying event handler directly is not supported -->
 <Component on:*="{handleEvent}" />
 ```
+
+# For Svelte 5 Users
+
+For Svelte 5, event forwarding is natively supported.🎉
+
+https://svelte-5-preview.vercel.app/docs/event-handlers#bubbling-events
