@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "magic-string": "0.30.5",
-    "svelte": "4.2.10",
+    "svelte": "4.2.11",
     "svelte-parse-markup": "0.1.2"
   },
   "peerDependencies": {
