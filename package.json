@@ -58,7 +58,7 @@
     "estree-walker": "3.0.3",
     "prettier": "3.2.5",
     "publint": "0.2.7",
-    "svelte-check": "3.6.6",
+    "svelte-check": "3.6.7",
     "typescript": "5.1.6",
     "vitest": "0.34.6"
   },
