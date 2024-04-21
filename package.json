@@ -63,7 +63,8 @@
     "vitest": "0.34.6"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.0.0",
+    "pnpm": "8"
   },
   "dependencies": {
     "magic-string": "0.30.10",
