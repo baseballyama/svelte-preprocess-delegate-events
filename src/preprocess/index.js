@@ -32,7 +32,7 @@ const getUniqueVarName = (usedVarNames, name) => {
   // Remove chars that can not use for variable name.
   const normalized = name.replace(/[^a-zA-Z_$]|^(\d)/g, '_');
   let i = 0;
-  while (usedVarNames.has(`${name}${i}`)) {
+  while (usedVarNames.has(`${normalized}${i}`)) {
     i++;
   }
   usedVarNames.add(`${normalized}${i}`);
