@@ -1,5 +1,11 @@
 # svelte-preprocess-delegate-events
 
+## 0.4.4
+
+### Patch Changes
+
+- [#121](https://github.com/baseballyama/svelte-preprocess-delegate-events/pull/121) [`452be37`](https://github.com/baseballyama/svelte-preprocess-delegate-events/commit/452be3718b5ddf53b048c67c97bc4b5237c8493b) Thanks [@baseballyama](https://github.com/baseballyama)! - fix: do not duplicated variable names when multiple svelte:component exist
+
 ## 0.4.3
 
 ### Patch Changes
