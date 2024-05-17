@@ -9,11 +9,11 @@ dependencies:
     specifier: 0.30.10
     version: 0.30.10
   svelte:
-    specifier: 4.2.16
-    version: 4.2.16
+    specifier: 4.2.17
+    version: 4.2.17
   svelte-parse-markup:
     specifier: 0.1.2
-    version: 0.1.2(svelte@4.2.16)
+    version: 0.1.2(svelte@4.2.17)
 
 devDependencies:
   '@changesets/changelog-github':
@@ -39,7 +39,7 @@ devDependencies:
     version: 0.2.7
   svelte-check:
     specifier: 3.7.1
-    version: 3.7.1(svelte@4.2.16)
+    version: 3.7.1(svelte@4.2.17)
   typescript:
     specifier: 5.1.6
     version: 5.1.6
@@ -2869,7 +2869,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check@3.7.1(svelte@4.2.16):
+  /svelte-check@3.7.1(svelte@4.2.17):
     resolution: {integrity: sha512-U4uJoLCzmz2o2U33c7mPDJNhRYX/DNFV11XTUDlFxaKLsO7P+40gvJHMPpoRfa24jqZfST4/G9fGNcUGMO8NAQ==}
     hasBin: true
     peerDependencies:
@@ -2881,8 +2881,8 @@ packages:
       import-fresh: 3.3.0
       picocolors: 1.0.0
       sade: 1.8.1
-      svelte: 4.2.16
-      svelte-preprocess: 5.1.4(svelte@4.2.16)(typescript@5.1.6)
+      svelte: 4.2.17
+      svelte-preprocess: 5.1.4(svelte@4.2.17)(typescript@5.1.6)
       typescript: 5.1.6
     transitivePeerDependencies:
       - '@babel/core'
@@ -2896,15 +2896,15 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-parse-markup@0.1.2(svelte@4.2.16):
+  /svelte-parse-markup@0.1.2(svelte@4.2.17):
     resolution: {integrity: sha512-DycY7DJr7VqofiJ63ut1/NEG92HrWWL56VWITn/cJCu+LlZhMoBkBXT4opUitPEEwbq1nMQbv4vTKUfbOqIW1g==}
     peerDependencies:
       svelte: ^3.0.0 || ^4.0.0
     dependencies:
-      svelte: 4.2.16
+      svelte: 4.2.17
     dev: false
 
-  /svelte-preprocess@5.1.4(svelte@4.2.16)(typescript@5.1.6):
+  /svelte-preprocess@5.1.4(svelte@4.2.17)(typescript@5.1.6):
     resolution: {integrity: sha512-IvnbQ6D6Ao3Gg6ftiM5tdbR6aAETwjhHV+UKGf5bHGYR69RQvF1ho0JKPcbUON4vy4R7zom13jPjgdOWCQ5hDA==}
     engines: {node: '>= 16.0.0'}
     requiresBuild: true
@@ -2947,12 +2947,12 @@ packages:
       magic-string: 0.30.10
       sorcery: 0.11.0
       strip-indent: 3.0.0
-      svelte: 4.2.16
+      svelte: 4.2.17
       typescript: 5.1.6
     dev: true
 
-  /svelte@4.2.16:
-    resolution: {integrity: sha512-mQwHpqHD2PmFcCyHaZ7XiTqposaLvJ75WpYcyY5/ce3qxbYtwQpZ+M7ZKP+2CG5U6kfnBZBpPLyofhlE6ROrnQ==}
+  /svelte@4.2.17:
+    resolution: {integrity: sha512-N7m1YnoXtRf5wya5Gyx3TWuTddI4nAyayyIWFojiWV5IayDYNV5i2mRp/7qNGol4DtxEYxljmrbgp1HM6hUbmQ==}
     engines: {node: '>=16'}
     dependencies:
       '@ampproject/remapping': 2.3.0
