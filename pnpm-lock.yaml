@@ -20,8 +20,8 @@ devDependencies:
     specifier: 0.5.0
     version: 0.5.0
   '@changesets/cli':
-    specifier: 2.27.4
-    version: 2.27.4
+    specifier: 2.27.5
+    version: 2.27.5
   '@types/estree':
     specifier: 1.0.5
     version: 1.0.5
@@ -137,17 +137,17 @@ packages:
       - encoding
     dev: true
 
-  /@changesets/cli@2.27.4:
-    resolution: {integrity: sha512-X3Nd9cBoyuykjmMJnRFHik26UoA5y4ikhds4BJE0IGKpnIvkV8gRqyZE6Tcmc3zuS5GXfCmGnyJXVwxe89uX5A==}
+  /@changesets/cli@2.27.5:
+    resolution: {integrity: sha512-UVppOvzCjjylBenFcwcZNG5IaZ8jsIaEVraV/pbXgukYNb0Oqa0d8UWb0LkYzA1Bf1HmUrOfccFcRLheRuA7pA==}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.24.4
       '@changesets/apply-release-plan': 7.0.3
       '@changesets/assemble-release-plan': 6.0.2
       '@changesets/changelog-git': 0.2.0
-      '@changesets/config': 3.0.0
+      '@changesets/config': 3.0.1
       '@changesets/errors': 0.2.0
-      '@changesets/get-dependents-graph': 2.0.0
+      '@changesets/get-dependents-graph': 2.1.0
       '@changesets/get-release-plan': 4.0.2
       '@changesets/git': 3.0.0
       '@changesets/logger': 0.1.0
@@ -176,18 +176,6 @@ packages:
       tty-table: 4.2.3
     dev: true
 
-  /@changesets/config@3.0.0:
-    resolution: {integrity: sha512-o/rwLNnAo/+j9Yvw9mkBQOZySDYyOr/q+wptRLcAVGlU6djOeP9v1nlalbL9MFsobuBVQbZCTp+dIzdq+CLQUA==}
-    dependencies:
-      '@changesets/errors': 0.2.0
-      '@changesets/get-dependents-graph': 2.0.0
-      '@changesets/logger': 0.1.0
-      '@changesets/types': 6.0.0
-      '@manypkg/get-packages': 1.1.3
-      fs-extra: 7.0.1
-      micromatch: 4.0.5
-    dev: true
-
   /@changesets/config@3.0.1:
     resolution: {integrity: sha512-nCr8pOemUjvGJ8aUu8TYVjqnUL+++bFOQHBVmtNbLvKzIDkN/uiP/Z4RKmr7NNaiujIURHySDEGFPftR4GbTUA==}
     dependencies:
@@ -204,16 +192,6 @@ packages:
     resolution: {integrity: sha512-6BLOQUscTpZeGljvyQXlWOItQyU71kCdGz7Pi8H8zdw6BI0g3m43iL4xKUVPWtG+qrrL9DTjpdn8eYuCQSRpow==}
     dependencies:
       extendable-error: 0.1.7
-    dev: true
-
-  /@changesets/get-dependents-graph@2.0.0:
-    resolution: {integrity: sha512-cafUXponivK4vBgZ3yLu944mTvam06XEn2IZGjjKc0antpenkYANXiiE6GExV/yKdsCnE8dXVZ25yGqLYZmScA==}
-    dependencies:
-      '@changesets/types': 6.0.0
-      '@manypkg/get-packages': 1.1.3
-      chalk: 2.4.2
-      fs-extra: 7.0.1
-      semver: 7.6.0
     dev: true
 
   /@changesets/get-dependents-graph@2.1.0:
