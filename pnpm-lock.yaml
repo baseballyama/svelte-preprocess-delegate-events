@@ -38,8 +38,8 @@ devDependencies:
     specifier: 0.2.8
     version: 0.2.8
   svelte-check:
-    specifier: 3.8.0
-    version: 3.8.0(svelte@4.2.18)
+    specifier: 3.8.1
+    version: 3.8.1(svelte@4.2.18)
   typescript:
     specifier: 5.1.6
     version: 5.1.6
@@ -2885,8 +2885,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check@3.8.0(svelte@4.2.18):
-    resolution: {integrity: sha512-7Nxn+3X97oIvMzYJ7t27w00qUf1Y52irE2RU2dQAd5PyvfGp4E7NLhFKVhb6PV2fx7dCRMpNKDIuazmGthjpSQ==}
+  /svelte-check@3.8.1(svelte@4.2.18):
+    resolution: {integrity: sha512-KlQ0TRVe01mdvh49Ylkr9FQxO/UWbQOtaIrccl3gjgkvby1TxY41VkT7ijCl6i29FjaJPE4m6YGmhdqov0MfkA==}
     hasBin: true
     peerDependencies:
       svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0
