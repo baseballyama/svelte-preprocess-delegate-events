@@ -41,8 +41,8 @@ devDependencies:
     specifier: 3.8.6
     version: 3.8.6(svelte@4.2.19)
   typescript:
-    specifier: 5.1.6
-    version: 5.1.6
+    specifier: 5.6.2
+    version: 5.6.2
   vitest:
     specifier: 0.34.6
     version: 0.34.6
@@ -1859,8 +1859,8 @@ packages:
       picocolors: 1.0.1
       sade: 1.8.1
       svelte: 4.2.19
-      svelte-preprocess: 5.1.4(svelte@4.2.19)(typescript@5.1.6)
-      typescript: 5.1.6
+      svelte-preprocess: 5.1.4(svelte@4.2.19)(typescript@5.6.2)
+      typescript: 5.6.2
     transitivePeerDependencies:
       - '@babel/core'
       - coffeescript
@@ -1881,7 +1881,7 @@ packages:
       svelte: 4.2.19
     dev: false
 
-  /svelte-preprocess@5.1.4(svelte@4.2.19)(typescript@5.1.6):
+  /svelte-preprocess@5.1.4(svelte@4.2.19)(typescript@5.6.2):
     resolution: {integrity: sha512-IvnbQ6D6Ao3Gg6ftiM5tdbR6aAETwjhHV+UKGf5bHGYR69RQvF1ho0JKPcbUON4vy4R7zom13jPjgdOWCQ5hDA==}
     engines: {node: '>= 16.0.0'}
     requiresBuild: true
@@ -1925,7 +1925,7 @@ packages:
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.19
-      typescript: 5.1.6
+      typescript: 5.6.2
     dev: true
 
   /svelte@4.2.19:
@@ -1998,8 +1998,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /typescript@5.1.6:
-    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+  /typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
