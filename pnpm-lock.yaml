@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   magic-string:
-    specifier: 0.30.15
-    version: 0.30.15
+    specifier: 0.30.17
+    version: 0.30.17
   svelte:
     specifier: 4.2.19
     version: 4.2.19
@@ -728,7 +728,7 @@ packages:
       istanbul-lib-report: 3.0.1
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.7
-      magic-string: 0.30.15
+      magic-string: 0.30.17
       picocolors: 1.0.0
       std-env: 3.7.0
       test-exclude: 6.0.0
@@ -757,7 +757,7 @@ packages:
   /@vitest/snapshot@0.34.6:
     resolution: {integrity: sha512-B3OZqYn6k4VaN011D+ve+AA4whM4QkcwcrwaKwAbyyvS/NB1hCWjFIBQxAQQSQir9/RtyAAGuq+4RJmbn2dH4w==}
     dependencies:
-      magic-string: 0.30.15
+      magic-string: 0.30.17
       pathe: 1.1.2
       pretty-format: 29.7.0
     dev: true
@@ -1370,8 +1370,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /magic-string@0.30.15:
-    resolution: {integrity: sha512-zXeaYRgZ6ldS1RJJUrMrYgNJ4fdwnyI6tVqoiIhyCyv5IVTK9BU8Ic2l253GGETQHxI4HNUwhJ3fjDhKqEoaAw==}
+  /magic-string@0.30.17:
+    resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
 
@@ -1941,7 +1941,7 @@ packages:
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
-      magic-string: 0.30.15
+      magic-string: 0.30.17
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.19
@@ -1964,7 +1964,7 @@ packages:
       estree-walker: 3.0.3
       is-reference: 3.0.2
       locate-character: 3.0.0
-      magic-string: 0.30.15
+      magic-string: 0.30.17
       periscopic: 3.1.0
 
   /term-size@2.2.1:
@@ -2149,7 +2149,7 @@ packages:
       chai: 4.4.1
       debug: 4.3.4
       local-pkg: 0.4.3
-      magic-string: 0.30.15
+      magic-string: 0.30.17
       pathe: 1.1.2
       picocolors: 1.0.0
       std-env: 3.7.0
