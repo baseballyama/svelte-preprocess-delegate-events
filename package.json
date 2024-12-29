@@ -68,10 +68,10 @@
   },
   "dependencies": {
     "magic-string": "0.30.17",
-    "svelte": "4.2.19",
+    "svelte": "5.2.11",
     "svelte-parse-markup": "0.1.5"
   },
   "peerDependencies": {
-    "svelte": ">=3 <5"
+    "svelte": ">=3 <6"
   }
 }
