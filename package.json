@@ -64,7 +64,7 @@
   },
   "engines": {
     "node": ">=16.0.0",
-    "pnpm": "9"
+    "pnpm": "8"
   },
   "dependencies": {
     "magic-string": "0.30.17",
@@ -73,5 +73,6 @@
   },
   "peerDependencies": {
     "svelte": ">=3 <5"
-  }
+  },
+  "packageManager": "pnpm@8.15.9"
 }
