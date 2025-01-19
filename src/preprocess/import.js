@@ -22,6 +22,7 @@ const hasImport = (instance, from, name) => {
         for (const specifier of node.specifiers) {
           if (
             specifier.type === 'ImportSpecifier' &&
+            specifier.imported.type === 'Identifier' &&
             specifier.imported.name === name
           ) {
             hasImportSpecifier = true;

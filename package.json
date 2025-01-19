@@ -64,7 +64,7 @@
   },
   "engines": {
     "node": ">=16.0.0",
-    "pnpm": "8"
+    "pnpm": "9"
   },
   "dependencies": {
     "magic-string": "0.30.17",
