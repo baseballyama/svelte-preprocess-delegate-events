@@ -67,7 +67,7 @@
     "pnpm": "8"
   },
   "dependencies": {
-    "magic-string": "0.30.18",
+    "magic-string": "0.30.21",
     "svelte": "4.2.20",
     "svelte-parse-markup": "0.1.5"
   },
