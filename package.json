@@ -60,7 +60,7 @@
     "publint": "0.2.12",
     "svelte-check": "3.8.6",
     "typescript": "5.1.6",
-    "vitest": "0.34.6"
+    "vitest": "3.2.6"
   },
   "engines": {
     "node": ">=16.0.0",
